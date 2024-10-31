@@ -1,0 +1,67 @@
+/* Background untuk keseluruhan halaman */
+body {
+  background: url('img/g8.jpg') no-repeat center center fixed;
+  background-size: cover;          /* Menyesuaikan gambar dengan ukuran layar */
+}
+
+/* CSS untuk Hero Section dengan Video Background */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;  /* Pastikan elemen hero tetap di atas video */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;  /* Video berada di bawah konten hero */
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5); /* Efek overlay semi transparan */
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Card Hover Effect */
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+      font-size: 2rem;
+  }
+  .hero p {
+      font-size: 1rem;
+  }
+  .hero-overlay {
+      padding: 10px;
+  }
+  #calendar-inner {
+      display: flex;
+      transition: transform 0.5s ease; /* Durasi transisi dan efek */
+  }
+}

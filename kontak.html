@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak - Wisata Alam Banyumas</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-image: url('img/ka.jpg'); /* gambar latar belakang */
+      background-size: cover;
+      background-position: center;
+      color: #fff; /* Warna teks default */
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7); /* efek transparan pada latar belakang kontainer */
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    /* CSS untuk teks berjalan */
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+    .marquee p {
+      display: inline-block;
+      padding-left: 100%; /* mulai scroll */
+      animation: marquee 10s linear infinite; /* Waktu dan gaya animasi */
+    }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Wisata Alam Banyumas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+        <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link active" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Kontak Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Hubungi Kami</h2>
+    <form>
+      <div class="form-group">
+        <label for="nama">Nama Anda</label>
+        <input type="text" class="form-control" id="nama" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Anda</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="pesan">Pesan</label>
+        <textarea class="form-control" id="pesan" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="marquee">
+      <p>&copy; Wisata Alam Banyumas.2024. Kami menunggu untuk Kesan terbaik Anda!</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

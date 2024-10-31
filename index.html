@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wisata Alam Banyumas</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+.header {
+    background-color: #007bff11; /* Warna latar belakang header */
+    color: white; /* Warna teks */
+    text-align: center; /* Rata tengah */
+    padding: 20px 0; /* Padding atas dan bawah */
+}
+
+.header-title {
+    font-size: 3em; /* Ukuran font besar untuk judul */
+    margin: 0; /* Menghapus margin default */
+}
+
+.marquee {
+    margin-top: 10px; /* Jarak antara judul dan marquee */
+    background-color: #343a40; /* Warna latar belakang marquee */
+    padding: 10px 0; /* Padding atas dan bawah untuk marquee */
+    color: white; /* Warna teks marquee */
+}
+
+body {
+            background: url('img/g8.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+body {
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            padding: 40px 20px;
+        }
+        .header-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #edf5f1;
+        }
+        .description {
+            font-size: 18px;
+            color: #f5f7f9;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+    .card {
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .custom-card {
+    border: 2px solid #ccc; /* Warna bingkai */
+    border-radius: 10px; /* Membuat sudut bingkai menjadi melengkung */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Bayangan */
+    transition: transform 0.2s; /* Transisi saat hover */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Efek hover mengangkat kolom */
+    box-shadow: 0 8px 30px rgba(22, 1, 1, 0.983); /* Bayangan lebih gelap saat hover */
+}
+
+    .navbar-nav .nav-link {
+    position: relative;
+    padding-bottom: 5px; /* Menyesuaikan jarak garis dengan teks */
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; /* Ketebalan garis */
+    background-color: #3d8e81; /* Warna garis */
+    transform: scaleX(0); /* Mulai dengan garis tersembunyi */
+    transition: transform 0.3s ease; /* Efek animasi */
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: scaleX(1); /* Munculkan garis saat hover */
+}
+
+
+    /* Styling for the calendar */
+    .calendar {
+    perspective: 1000px;
+    margin: 20px 0;
+    overflow: hidden; 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.event {
+    border: 1px solid #e76363;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.event-logo {
+    width: 100px;
+    height: auto;
+}
+
+.event-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.event-date {
+    color: #0a0101;
+}
+
+.event-description {
+    font-size: 0.9em;
+    color: hwb(0 5% 95%);
+}
+
+
+    .calendar-inner {
+      width: 600%; /* Set to accommodate 12 months */
+      display: flex;
+      transition: transform 0.5s;
+      position: relative;
+    }
+
+    .month {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #06129d;
+      border-radius: 5px;
+      background-color: #fbf8f8;
+      box-shadow: 0 4px 8px rgb(7, 16, 61);
+      position: relative;
+    }
+
+    .month h4 {
+      margin: 0;
+    }
+
+    .btn-slide {
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .btn-custom {
+    background-color: #328c8a; /* Ganti dengan kode warna yang diinginkan */
+    color: white; /* Warna teks */
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #45a049; /* Warna saat hover */
+}
+
+    /* Styling untuk sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Mulai di luar layar */
+  width: 250px;
+  height: 100%;
+  background-color: #f8f6f6;
+  box-shadow: 2px 0 5px rgba(2, 18, 145, 0.1);
+  transition: left 0.3s ease; /* Efek transisi */
+  z-index: 1000; /*sidebar berada di atas konten lain */
+}
+
+.sidebar.open {
+  left: 0; /* Tampilkan sidebar */
+}
+
+.sidebar .close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  padding: 15px;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: #3f9498;
+}
+
+.sidebar-menu li a:hover {
+  text-decoration: underline;
+}
+
+.content-section {
+    width: 100%; /* Atur lebar */
+    max-width: 1200px; /* Batas maksimum lebar */
+    margin: 0 auto; /* Elemen di tengah halaman */
+    padding: 50px 0;
+    
+    /* Menambahkan dua gambar latar */
+    background-image: url('img/g1.jpg'), url('img/g1.jpg'); /* Gambar kedua */
+    background-size: cover, cover; /* Mengatur kedua gambar */
+    background-position: center, center; /* Memusatkan kedua gambar */
+    background-repeat: no-repeat, no-repeat; /* Mencegah pengulangan */
+    
+    color: rgb(254, 251, 251); /* Mengubah warna terlihat jelas */
+    text-shadow: 2px 2px 4px rgb(8, 8, 8); /* Menambahkan bayangan pada teks */
+}
+
+        .content-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+/* Destinations Section */
+#destinations {
+    padding: 50px 20px;
+    background-color:  #3e939711;    ;
+    text-align: center;
+}
+
+#destinations h2 {
+    color: #f3efef; /* Ganti dengan warna yang diinginkan untuk judul utama */
+    font-size: 2.5em; /* Atur ukuran font jika perlu */
+    margin-bottom: 20px;
+}
+
+.destination p {
+    color: #666666; /* Ganti dengan warna untuk deskripsi destinasi */
+}
+
+.container h2.text-center {
+    color: #f7f5f5; /* untuk judul "Destinasi Favorit" */
+    font-size: 2.5em; /* Atur ukuran font*/
+    margin-bottom: 20px;
+    text-align: center ; /*teks tetap di tengah */
+}
+
+
+.container .destination-list .destination p {
+    color: #111010; /* Warna untuk teks deskripsi dalam section "Destinasi Favorit" */
+}
+
+#destinations h2 {
+    margin-bottom: 20px;
+}
+
+.destination-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.destination {
+    background: #31a681;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(19, 18, 18);
+    width: 300px;
+    text-align: center;
+}
+
+.destination img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.destination h3 {
+    margin-top: 15px;
+}
+
+.destination p {
+    margin: 10px 0;
+    color: #090909;
+}
+
+        #promotions {
+    padding: 20px;
+    background-color: #f4f3f3;
+    text-align: center;
+}
+
+.promotion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* responsif kolom */
+    gap: 20px; /* Jarak antar kolom */
+    margin: 20px 0;
+}
+
+.promotion {
+    background: white;
+    border: 1px solid #449290;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s; /* Efek transisi saat hover */
+}
+
+.promotion:hover {
+    transform: scale(1.05); /* Efek pembesaran saat hover */
+}
+
+.promotion h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.promotion p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #449290;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Efek transisi pada button */
+}
+
+.btn-secondary:hover {
+    background-color: #093335; /* Warna button saat hover */
+}
+
+.custom-btn {
+    background-color: #edf7ed; /* bg diinginkan */
+    color: rgb(168, 237, 219); /* Ganti dengan warna teks */
+    border: none; /* Menghapus border default */
+    border-radius: 5px; /* Menambahkan sudut melingkar */
+    padding: 10px 20px; /* Mengatur padding */
+    font-size: 16px; /* Mengatur ukuran font */
+    cursor: pointer; /* Menambahkan kursor pointer saat hover */
+    transition: background-color 0.3s; /* Menambahkan efek transisi */
+}
+
+.custom-btn:hover {
+    background-color: #090a09; /* Ganti dengan warna saat hover */
+}
+
+.footer {
+    background-color: #343a40; /* Warna latar belakang footer */
+    color: white; /* Warna teks */
+    padding: 20px 0; /* Padding atas dan bawah */
+    text-align: center; /* Rata tengah */
+}
+
+.footer-content {
+    display: flex; /* Mengatur layout flex untuk footer */
+    justify-content: space-around; /* Menjaga jarak antara elemen */
+    margin-bottom: 10px; /* Margin bawah untuk jarak antara konten footer dan marquee */
+}
+
+.footer-section {
+    flex: 1; /* Mengatur setiap bagian footer agar sama besar */
+    padding: 0 20px; /* Padding samping */
+}
+
+.footer-section h3 {
+    margin-bottom: 10px; /* Margin bawah untuk heading */
+}
+
+.footer-section a {
+    color: #f8f9fa; /* Warna tautan */
+    text-decoration: none; /* Menghapus garis bawah dari tautan */
+}
+
+.footer-section a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+.marquee {
+    background-color: #3138385c; /* Warna latar belakang marquee */
+    padding: 10px 0; /* Padding atas dan bawah */
+}
+
+.promo-container {
+    border: 2px solid #21a97e; /* Warna bingkai */
+    border-radius: 10px; /* Sudut bingkai melengkung */
+    padding: 20px; /* Jarak di dalam bingkai */
+    background-color: #64c5a63d; /* Warna latar belakang bingkai */
+    text-align: center; /* Rata tengah teks */
+    margin: 20px auto; /* Margin untuk memposisikan bingkai di tengah */
+    max-width: 600px; /* Lebar maksimal bingkai */
+}
+
+.promo-title {
+    color: #121314; /* Warna teks */
+    font-size: 2.5em; /* Ukuran teks */
+    margin: 0; /* Menghapus margin default */
+}
+
+.footer {
+    background-image: url('path/to/your/background-image.jpg'); /* Ganti dengan path gambar latar belakang */
+    background-size: cover; /* Membuat gambar menutupi seluruh footer */
+    background-position: center; /* Memposisikan gambar di tengah */
+    color: white; /* Warna teks */
+    padding: 40px 0; /* Jarak di dalam footer */
+    text-align: center; /* Rata tengah teks */
+    position: relative; /* Agar elemen anak bisa diposisikan relatif terhadap footer */
+    overflow: hidden; /* Menyembunyikan overflow jika ada */
+}
+
+.footer-content {
+    z-index: 1; /* Membawa konten ke depan dari elemen latar belakang */
+}
+
+.footer-section {
+    margin-bottom: 20px; /* Jarak antar section footer */
+}
+
+.footer-section a {
+    color: #95fcca; /* Warna tautan */
+    text-decoration: none; /* Menghapus garis bawah tautan */
+    margin: 0 10px; /* Jarak antar tautan */
+}
+
+.footer-section a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+.marquee {
+    position: absolute; /* Memposisikan marquee di bawah footer */
+    bottom: 0; /* Mengatur posisi di bagian bawah */
+    left: 0; /* Memposisikan di sebelah kiri */
+    right: 0; /* Memposisikan di sebelah kanan */
+    background-color: rgb(13, 132, 102); /* Latar belakang semi-transparan */
+    color: white; /* Warna teks */
+    padding: 10px 0; /* Jarak di atas dan bawah teks marquee */
+    z-index: 2; /* Membawa marquee di atas konten */
+}
+
+  </style>
+</head>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+      <h1 class="header-title">Selamat Datang di Website Informasi Wisata Alam Banyumas</h1>
+      <div class="marquee">
+          <marquee behavior="scroll" direction="left">Temukan keindahan alam dan destinasi menarik di Banyumas bersama Kami! Akan ada banyak Pengalaman Unik dari setiap Penawaran yang Kami berikan!</marquee>
+      </div>
+  </div>
+</header>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <button class="close-btn" onclick="toggleSidebar()">×</button>
+  <ul class="sidebar-menu">
+    <li><a href="#notifikasi">Notifikasi</a></li>
+    <li><a href="#pesan-kesan">Review Pengunjung</a></li>
+    <li><a href="#pembayaran">Pembayaran</a></li>
+    <li><a href="#Lainnya">Lainnya</a></li>
+    <li><a href="#bantuan">Apa Yang bisa Kami Bantu?</a></li>
+  </ul>
+</div>
+<body>
+ 
+  <div class="container content-section">
+    <h1 class="content-title">Banyumas Mbetaih</h1>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="btn btn-custom" onclick="toggleSidebar()">Menu</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+        <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container content">
+    <h1 class="header-title">Apa saja Wisata asli di Banyumas?</h1>
+</div>
+
+          <!-- Destinations Section -->
+          <section id="destinations">
+            <h2>Destinasi Teramai</h2>
+            <div class="destination-list">
+                <div class="destination">
+                    <img src="img/g3.jpg" alt="Banyumas">
+                    <h3>Baturraden</h3>
+                    <p>Beragam Pilihan Wisata Alam Lokal</p>
+                </div>
+                <div class="destination">
+                    <img src="img/g5.jpg" alt="Banyumas">
+                    <h3>Maskemambang</h3>
+                    <p>Berbagai Taman Indah ada di sini</p>
+                </div>
+                <div class="destination">
+                    <img src="img/gc.jpg" alt="Banyumas">
+                    <h3>Area Camp Germanggis</h3>
+                    <p>Keseruan Menjelajah Perairan Alami</p>
+                </div>
+            </div>
+        </section>
+                  
+     <!-- Destinations Section -->
+     <section id="destinations">
+        <div class="destination-list">
+            <div class="destination">
+                <img src="img/g7.jpg" alt="Banyumas">
+                <h3>Bukit Watu Meja</h3>
+                <p>Keindahan Luar Biasa View Alam dan Udara</p>
+            </div>
+            <div class="destination">
+                <img src="img/g8.jpg" alt="Banyumas">
+                <h3>Curug Nangga</h3>
+                <p>Sajian Pemandangan Asri Air Terjun</p>
+            </div>
+            </div>
+        </section>
+
+<!-- Destinasi Lain -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Destinasi Lainnya Yang Harus Anda Kunjungi</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/b.jpg" class="card-img-top" alt="Pantai">
+        <div class="card-body">
+          <h5 class="card-title">Hutan Pinus Limpakuwus</h5>
+          <p class="card-text">Nikmati pesona keaslian alam peopohonan yang menjulang!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/ga.jpg" class="card-img-top" alt="Gunung">
+        <div class="card-body">
+          <h5 class="card-title">Bukit Tengtung</h5>
+          <p class="card-text">Pemandangan Alam menakjubkan dari kaki gunung di perjalanan!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/gb.jpg" class="card-img-top" alt="Hutan">
+        <div class="card-body">
+          <h5 class="card-title">Danau Kumpe</h5>
+          <p class="card-text">Eksplorasi keseruan Wisata Perairan!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/h.jpg" class="card-img-top" alt="Sawah">
+        <div class="card-body">
+          <h5 class="card-title">Taman Curug</h5>
+          <p class="card-text">Rileksasi dalam damainya air terjun tersembunyi!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/s.jpg" class="card-img-top" alt="Air Terjun">
+        <div class="card-body">
+          <h5 class="card-title">Taman Panemon</h5>
+          <p class="card-text">Paket lengkap unutuk suguhan pemandanga alam dan Kolam Rekreasi!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm custom-card">
+        <img src="img/y.jpg" class="card-img-top" alt="Laut">
+        <div class="card-body">
+          <h5 class="card-title">Gunung Kidul</h5>
+          <p class="card-text">Menghadirkan Pemandangan menakjubkan dari Ketinggian!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Kalender Event -->
+<section class="container my-5">
+  <h2 class="text-center">Kalender Event</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="calendar-wrapper">
+        <div id="calendar-inner">
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Januari</h4>
+            <p class="event-description">Event besar di bulan Januari : Festival Alam Grebeg Suran</p>
+            <p class="event-date">Tanggal: 20 Januari 2024</p>
+            <p class="event-description">Lokasi : Taman Baturraden</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Februari</h4>
+            <p class="event-description">Event besar di bulan Februari : Pendakian Bersama</p>
+            <p class="event-date">Tanggal: 13 Februari 2024</p>
+            <p class="event-description">Lokasi: Basecamp Gunung Slamet</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Maret</h4>
+            <p class="event-description">Event besar di bulan Maret :Camping dan Stargazing di Curug Cipendok</p>
+            <p class="event-date">Tanggal: 4 Maret 2024</p>
+            <p class="event-description">Lokasi : Curug Cipendok.</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">April</h4>
+            <p class="event-description">Event besar di bulan April : Aksi Bersih Pantai dan Sungai Banyumas</p>
+            <p class="event-date">Tanggal: 2 April 2024 (Hari Bumi)</p>
+            <p class="event-description">Lokasi : Pantai Batu Karas</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Mei</h4>
+            <p class="event-description">Event besar di bulan Mei : Workshop Fotografi Alam Banyumas</p>
+            <p class="event-date">Tanggal: 29 Mei 2024</p>
+            <p class="event-description">Lokasi : Kebun Teh Tambi</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Juni</h4>
+            <p class="event-description">Event besar di bulan Juni : Tur Alam Berpemandu di Hutan Pinus</p>
+            <p class="event-date">Tanggal: 11 Juni 2024</p>
+            <p class="event-description">Lokasi: Hutan Pinus Baturaden</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Juli</h4>
+            <p class="event-description">Event besar di bulan Juli : Edukasi Lingkungan untuk Anak-anak di Taman Edukasi</p>
+            <p class="event-date">Tanggal: 3 Juli 2024</p>
+            <p class="event-description">Taman Edukasi Baturaden</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Agustus</h4>
+            <p class="event-description">Event besar di bulan Agustus : Lomba Trekking dan Hiking Banyumas</p>
+            <p class="event-date">Tanggal: 1 November 2024</p>
+            <p class="event-description">Lokasi : Jalur Pendakian Bukit Seroja</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">September</h4>
+            <p class="event-description">Event besar di bulan September : Banyumas Eco-Run</p>
+            <p class="event-date">Tanggal: 1 November 2024</p>
+            <p class="event-description">Lokasi : Taman Hutan Raya Banyumas</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Oktober</h4>
+            <p class="event-description">Event besar di bulan Oktober : Camping dan Pelatihan Survival</p>
+            <p class="event-date">Tanggal: 1 November 2024</p>
+            <p class="event-description">Lokasi: Area Camping Curug Ceheng</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">November</h4>
+            <p class="event-description">Event besar di bulan November : Festival Air Terjun Banyumas</p>
+            <p class="event-date">Tanggal: 1 November 2024</p>
+            <p class="event-description">Lokasi : Air Terjun Jumog dan sekitarnya</p>
+          </div>
+          <div class="month">
+            <i class="fa-solid fa-calendar-days event-logo"></i> 
+            <h4 class="month-title">Desember</h4>
+            <p class="event-description">Event besar di bulan Desember : Perayaan Hari Keanekaragaman Hayati</p>
+            <p class="event-date">Tanggal: 1 November 2024</p>
+            <p class="event-description">Lokasi : Kebun Raya Banyumas</p>
+          </div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="custom-bt" onclick="prevMonth()">&#10094; Sebelumnya</button>
+        <button class="custom-bt" onclick="nextMonth()">Selanjutnya &#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="promotions">
+  <div class="promo-container">
+    <h1 class="promo-title">Disini Promo Massal Sedulur Banyumas!</h1>
+</div>
+  <div class="promotion-list">
+      <div class="promotion">
+          <h3>Promo Harga Tiket Masuk</h3>
+          <p>Diskon hingga 20% untuk setiap destinasi pilihan berbeda1</p>
+          <a href="#" class="btn-secondary">Cek Promo</a>
+      </div>
+      <div class="promotion">
+          <h3>Promo AKhir Pekan</h3>
+          <p>Nikmati liburan singkat dengan penawaran harga terbaik.</p>
+          <a href="#" class="btn-secondary">Cek Promo</a>
+      </div>
+      <div class="promotion">
+          <h3>Cashback up to 70%</h3>
+          <p>Untuk Anda Pengunjung Baru!</p>
+          <a href="#" class="btn-secondary">Cek Promo</a>
+      </div>
+      <div class="promotion">
+          <h3>Bundling Pricelist</h3>
+          <p>Agar lebih hemat, Yuk pakai Bundlingnya!</p>
+          <a href="#" class="btn-secondary">Cek Promo</a>
+      </div>
+  </div>
+</section>
+
+<style>
+  #calendar-inner {
+    display: flex;
+    transition: transform 0.5s ease; /* Durasi transisi dan efek */
+  }
+
+  .calendar-wrapper {
+    overflow: hidden; /* Sembunyikan bagian yang melampaui */
+    max-width: 100%; /* Pastikan lebar maksimum dengan kontainer */
+  }
+
+  .month {
+    min-width: 100%; /*  lebar 100% */
+    padding: 20px; /* Memberi ruang di dalam bulan */
+    box-sizing: border-box; /* Menghitung padding dalam lebar */
+    text-align: center; /* Memusatkan teks dalam bulan */
+    display: flex; /* Menggunakan flexbox untuk tata letak vertikal */
+    flex-direction: column; /* Mengatur arah menjadi kolom */
+    justify-content: center; /* Memusatkan konten secara vertikal */
+    height: 200px; /* Tinggi tetap untuk konsistensi */
+  }
+
+  .month-title {
+    font-size: 24px; /* Ukuran font untuk judul bulan */
+    margin-bottom: 10px; /* Ruang di bawah judul bulan */
+  }
+
+  .event-description {
+    font-size: 16px; /* Ukuran font untuk deskripsi event */
+  }
+
+  .button-container {
+    display: flex; /* Menggunakan flexbox untuk tata letak tombol */
+    justify-content: space-between; /* Menyebarkan tombol di sepanjang lebar kontainer */
+    margin-top: 10px; /* Memberi jarak antara kalender dan tombol */
+  }
+</style>
+
+<script>
+  let currentMonth = 0; // Indeks bulan saat ini
+
+  function updateCalendar() {
+    const calendarInner = document.getElementById("calendar-inner");
+    calendarInner.style.transform = `translateX(${-currentMonth * 100}%)`;
+  }
+
+  function nextMonth() {
+    currentMonth++;
+    if (currentMonth >= 12) {
+      currentMonth = 0; // Kembali ke Januari setelah Desember
+    }
+    updateCalendar();
+  }
+
+  function prevMonth() {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11; // Kembali ke Desember setelah Januari
+    }
+    updateCalendar();
+  }
+</script>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+  }
+</script>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>Tentang Kami</h3>
+              <p>Kami adalah penyedia informasi wisata alam terbaik di Banyumas.</p>
+          </div>
+          <div class="footer-section">
+              <h3>Kontak Kami</h3>
+              <p>Email: info@wisataalam.com</p>
+              <p>Telepon: +62 123 456 789</p>
+          </div>
+          <div class="footer-section">
+              <h3>Ikuti Kami</h3>
+              <a href="#">Facebook</a>
+              <a href="#">Instagram</a>
+              <a href="#">Twitter</a>
+          </div>
+      </div>
+      <div class="marquee">
+          <marquee behavior="scroll" direction="left">Selamat datang di website wisata alam Banyumas! Temukan berbagai destinasi menarik di sini!</marquee>
+      </div>
+  </div>
+</footer>
